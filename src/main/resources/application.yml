@@ -1,0 +1,7 @@
+spring:
+  #\u914D\u7F6E Thymeleaf
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: pro
+

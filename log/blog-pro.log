@@ -1,0 +1,6 @@
+2019-11-18 20:03:57.664  INFO 18380 --- [restartedMain] com.fly.blog.BlogApplication             : Starting BlogApplication on DESKTOP-77PFTI3 with PID 18380 (started by LFY in F:\我的项目\blog)
+2019-11-18 20:03:57.667  INFO 18380 --- [restartedMain] com.fly.blog.BlogApplication             : The following profiles are active: pro
+2019-11-18 20:03:58.982  WARN 18380 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-11-18 20:03:59.659  WARN 18380 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-11-18 20:03:59.717  WARN 18380 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-11-18 20:03:59.861  INFO 18380 --- [restartedMain] com.fly.blog.BlogApplication             : Started BlogApplication in 2.672 seconds (JVM running for 3.896)

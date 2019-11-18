@@ -1,0 +1,21 @@
+#生产环境
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///blog?serverTimezone=GMT&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+#配置日志
+logging:
+  level:
+    root: warn
+    com.fly: info
+  file: log/blog-pro.log
+
+server:
+  port: 8080
