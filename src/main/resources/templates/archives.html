@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head  th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <title>归档</title>
+    <!--适应移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <!--引入 semanticUI css-->
+    <link rel="stylesheet" href="../static/lib/semanticUI/semantic.min.css">
+    <!--引入格式化样式-->
+    <link rel="stylesheet" href="../static/css/typo.css">
+    <!--引入动画效果-->
+    <link rel="stylesheet" href="../static/css/animate.css">
+    <!--引入代码块效果-->
+    <link rel="stylesheet" href="../static/lib/prism/prism.css">
+    <link rel="stylesheet" href="../static/lib/toc/tocbot.css">
+    <!--引入自定义样式-->
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small animated pulse">
+        <div class="ui container">
+            <!--stackable 可堆叠适应手机端-->
+            <div class="ui inverted stackable secondary menu ">
+                <h1 class="ui teal header item">Blog</h1>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon idea"></i>分类</a>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon home"></i>首页</a>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon paperclip"></i>归档</a>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon tags"></i>标签</a>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon info"></i>关于我</a>
+                <div class="right m-menu-toggle item m-mobile-hidden">
+                    <div class="ui input icon">
+                        <input type="text" placeholder="Search">
+                        <i class="ui icon search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui icon button m-top-right m-mobile-show menu toggle">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <!--中间内容-->
+    <div class="ui container m-margin-top-massive m-container-tiny">
+        <div class="ui top attached segment">
+            <div class="ui two column grid">
+                <div class="column">
+                    <h3 class="ui teal header">归档</h3>
+                </div>
+                <div class="right aligned column">
+                    共 <h2 class="ui orange header m-inline-block">13</h2> 篇
+                </div>
+            </div>
+        </div>
+        <div class="ui segment">
+            <h2 class="ui header center aligned">2019</h2>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui segment">
+            <h2 class="ui header center aligned">2018</h2>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui segment">
+            <h2 class="ui header center aligned">2017</h2>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui segment">
+            <h2 class="ui header center aligned">2016</h2>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui top attached segment">
+                <div class="ui two stackable column grid">
+                    <div class="ui column">
+                        关于刻意练习的清单
+                        <div class="ui teal basic label m-margin-left-small">10月02号</div>
+                    </div>
+                    <div class="ui column right aligned">
+                        <div class="ui orange basic label">原创</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <!--底部 vertical去除圆角-->
+    <!-- 居中使用 center aligned-->
+    <footer  th:replace="_fragments :: footer" class="ui center aligned inverted vertical segment m-padded-tb-big">
+        <!--container 容器中的组居中-->
+        <div class="ui teal container">
+            <!--带有分割线的 grid, 相当于一行, 分割线使用 divided, 且默认为黑色, 因此在这里需要反转为白色.-->
+            <!--让 grid 堆叠 适应手机端-->
+            <div class="ui inverted stackable divided grid">
+                <!--占有三列-->
+                <div class="three wide column">
+                    <!--圆角的图片-->
+                    <!--图片居中-->
+                    <img src="../static/images/Wechat.png" alt="" class="ui centered rounded image" style="width: 110px">
+                </div>
+                <!--占有三列-->
+                <div class="three wide column">
+                    <h4 class="m-text-spaced m-text-thin">最新博客</h4>
+                    <!--使用 SemanticUI 的 ul-->
+                    <div class="ui inverted link list">
+                        <!--使用 item 标记每一行-->
+                        <a href="#" class="item">关于练习的思考</a>
+                        <a href="#" class="item">关于练习的思考</a>
+                        <a href="#" class="item">关于练习的思考</a>
+                    </div>
+                </div>
+                <!--占有三列-->
+                <div class="three wide column">
+                    <h4 class="m-text-spaced m-text-thin">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email: 159984575@qq.com</a>
+                        <a href="#" class="item">QQ: 1509984575</a>
+                    </div>
+                </div>
+                <!--占有七列-->
+                <div class="seven wide column">
+                    <h4 class="m-text-spaced m-text-thin">Blog</h4>
+                    <p class="m-text-thin m-opacity-mini m-text-lined m-text-spaced">emantic UI 把单词和类看作可以交换的概念处理,类用自然语言的语法，比如名词/修饰词的关系、次序，以及直观的多元链接概念。Semantic UI 像 BEM 和 SMACSS一样的高效，且更加优秀。</p>
+                </div>
+            </div>
+        </div>
+        <!--在下面加一条线 reverted反转颜色 section线与上面有间隔 -->
+        <div class="ui reverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-mini ">Copyright @2019 create by LFY</p>
+    </footer>
+    <!--/*/<th:block>/*/-->
+    <!-- 引入 jQuery -->
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+    <!-- 引入 semanticUI 的 js 文件-->
+    <script src="../static/lib/semanticUI/semantic.min.js"></script>
+    <script src="../static/lib/prism/prism.js"></script>
+    <script src="../static/lib/toc/tocbot.min.js"></script>
+    <script src="../static/lib/qrcode/qrcode.min.js"></script>
+    <script>
+        /*--------注意 class 之间不能有间隔--------*/
+        $('.menu.toggle').click(function () {
+            $('.m-menu-toggle').toggleClass('m-mobile-hidden');
+        });
+    </script>
+    <!--/*/</th:block>/*/-->
+</body>
+</html>

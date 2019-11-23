@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!--适应移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <!--引入 semanticUI css-->
+    <link rel="stylesheet" href="../static/lib/semanticUI/semantic.min.css">
+    <!--引入动画效果-->
+    <link rel="stylesheet" href="../static/css/animate.css">
+    <!--引入自定义样式-->
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small animated pulse">
+        <div class="ui container">
+            <!--stackable 可堆叠适应手机端-->
+            <div class="ui inverted stackable secondary menu">
+                <h1 class="ui teal header item">Blog</h1>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon idea"></i>分类</a>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon home"></i>首页</a>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon paperclip"></i>归档</a>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon tags"></i>标签</a>
+                <a href="#" class="ui m-menu-toggle item m-mobile-hidden"><i class="icon info"></i>关于我</a>
+                <div class="right m-menu-toggle item m-mobile-hidden">
+                    <div class="ui input icon">
+                        <input type="text" placeholder="Search">
+                        <i class="ui icon search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui icon button m-top-right m-mobile-show menu toggle">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <!--中间内容-->
+    <div class=" m-padded-tb-big m-margin-big animated bounce">
+        <div class="ui stackable container">
+            <!--左右布局加 stackable 实现堆叠效果-->
+            <div class="ui stackable grid">
+                <!--左边博客列表-->
+                <div class="eleven wide column">
+                    <!--header-->
+                    <!--top attached 与下面的 attached 才能进行连接,否则不能-->
+                    <div class="ui top attached segment">
+                        <!--middle aligned 加在 grid 上让里面东西垂直居中-->
+                        <div class="ui middle aligned two column grid">
+                            <div class="column">
+                                <h3 class="ui teal header">博客</h3>
+                            </div>
+                            <div class="right aligned column">
+                                共 <h1 class="ui orange header m-inline-block m-text-thin">13</h1> 篇
+                            </div>
+                        </div>
+                    </div>
+                    <!--博客列表-->
+                    <div class="ui padded attached segment">
+                        <!--第一个博客-->
+                        <!--padded增加内边距-->
+                        <!--vertical会在下面加横线-->
+                        <div class="ui vertical segment m-padded-tb-big">
+                            <!--column 必须在 grid 中才能有效-->
+                            <!--手机端左右翻转-->
+                            <div class="ui stackable mobile mobile reversed grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
+                                    <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <!--横向列表-->
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/images/head.jpg" alt="" class="ui avatar image">
+                                                    <!--图片后面的昵称建议使用 content-->
+                                                    <div class="content"><a href="#" class="header" target="_blank">李凡宇</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon calendar"></i> 2019-11-15
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon eye"></i> 456
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a href="#">
+                                        <img src="../static/images/image.jpg" alt="" class="ui image rounded">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui vertical segment m-padded-tb-big">
+                            <!--column 必须在 grid 中才能有效-->
+                            <!--手机端左右翻转-->
+                            <div class="ui stackable mobile mobile reversed grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
+                                    <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <!--横向列表-->
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/images/head.jpg" alt="" class="ui avatar image">
+                                                    <!--图片后面的昵称建议使用 content-->
+                                                    <div class="content"><a href="#" class="header" target="_blank">李凡宇</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon calendar"></i> 2019-11-15
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon eye"></i> 456
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a href="#">
+                                        <img src="../static/images/image.jpg" alt="" class="ui image rounded">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui vertical segment m-padded-tb-big">
+                            <!--column 必须在 grid 中才能有效-->
+                            <!--手机端左右翻转-->
+                            <div class="ui stackable mobile mobile reversed grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
+                                    <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <!--横向列表-->
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/images/head.jpg" alt="" class="ui avatar image">
+                                                    <!--图片后面的昵称建议使用 content-->
+                                                    <div class="content"><a href="#" class="header" target="_blank">李凡宇</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon calendar"></i> 2019-11-15
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon eye"></i> 456
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a href="#">
+                                        <img src="../static/images/image.jpg" alt="" class="ui image rounded">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui vertical segment m-padded-tb-big">
+                            <!--column 必须在 grid 中才能有效-->
+                            <!--手机端左右翻转-->
+                            <div class="ui stackable mobile mobile reversed grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
+                                    <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <!--横向列表-->
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/images/head.jpg" alt="" class="ui avatar image">
+                                                    <!--图片后面的昵称建议使用 content-->
+                                                    <div class="content"><a href="#" class="header" target="_blank">李凡宇</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon calendar"></i> 2019-11-15
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon eye"></i> 456
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a href="#">
+                                        <img src="../static/images/image.jpg" alt="" class="ui image rounded">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui vertical segment m-padded-tb-big">
+                            <!--column 必须在 grid 中才能有效-->
+                            <!--手机端左右翻转-->
+                            <div class="ui stackable mobile mobile reversed grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
+                                    <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <!--横向列表-->
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/images/head.jpg" alt="" class="ui avatar image">
+                                                    <!--图片后面的昵称建议使用 content-->
+                                                    <div class="content"><a href="#" class="header" target="_blank">李凡宇</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon calendar"></i> 2019-11-15
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon eye"></i> 456
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a href="#">
+                                        <img src="../static/images/image.jpg" alt="" class="ui image rounded">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--博客底部-->
+                    <div class="ui bottom attached segment">
+                        <div class="ui two column grid">
+                            <!--left aligned 适用于 column-->
+                            <div class="left aligned column">
+                                <a href="#" class="ui basic teal button">上一页</a>
+                           </div>
+                            <div class="right aligned column">
+                                <a href="#" class="ui basic teal button">下一页</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--右边卡片-->
+                <div class="five wide column">
+                    <div class="ui segments">
+                            <div class="ui segment secondary">
+                                <!--左右布局要想到grid-->
+                                <div class="ui two column grid">
+                                    <div class="column">
+                                        <i class="ui idea icon"></i>
+                                        分类
+                                    </div>
+                                    <div class="right aligned column">
+                                        <a href="#" target="_blank">更多<i class="angle right double icon"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui teal segment">
+                                <!--填充容器-->
+                                <div class="ui fluid vertical menu">
+                                    <a href="#" target="_blank" class="item">
+                                        学习日志
+                                        <div class="ui basic teal label">14</div>
+                                    </a>
+                                    <a href="#" target="_blank" class="item">
+                                        学习日志
+                                        <div class="ui basic teal label">14</div>
+                                    </a>
+                                    <a href="#" target="_blank" class="item">
+                                        学习日志
+                                        <div class="ui basic teal label">14</div>
+                                    </a>
+                                    <a href="#" target="_blank" class="item">
+                                        学习日志
+                                        <div class="ui basic teal label">14</div>
+                                    </a>
+                                    <a href="#" target="_blank" class="item">
+                                        学习日志
+                                        <div class="ui basic teal label">14</div>
+                                    </a>
+                                    <a href="#" target="_blank" class="item">
+                                        学习日志
+                                        <div class="ui basic teal label">14</div>
+                                    </a>
+                                    <a href="#" target="_blank" class="item">
+                                        学习日志
+                                        <div class="ui basic teal label">14</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="ui segments m-margin-massive">
+                            <div class="ui secondary segment">
+                                <div class="ui two column grid">
+                                    <div class="column">
+                                        <i class="tag icon"></i>标签
+                                    </div>
+                                    <a href="#" target="_blank" class="right aligned column">
+                                        更多 <i class="angle right double icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ui teal segment">
+                                <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
+                                <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
+                                <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
+                                <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
+                                <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
+                                <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
+                                <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
+                                <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
+                            </div>
+                        </div>
+                    <div class="ui segments m-margin-massive">
+                            <div class="ui secondary segment">
+                                <div class="ui grid">
+                                    <div class="column"><i class="ui icon bookmark"></i>最新推荐</div>
+                                </div>
+                            </div>
+                            <div class="ui segment">
+                                <a href="#" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
+                            </div>
+                            <div class="ui segment">
+                                <a href="#" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
+                            </div>
+                            <div class="ui segment">
+                                <a href="#" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
+                            </div>
+                            <div class="ui segment">
+                                <a href="#" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
+                            </div>
+                            <div class="ui segment">
+                                <a href="#" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
+                            </div>
+                            <div class="ui segment">
+                                <a href="#" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
+                            </div>
+                        </div>
+                    <div class="ui horizontal divider">
+                        <h4 class="ui header m-text-thin">扫码关注我</h4>
+                    </div>
+                    <!--卡片居中-->
+                    <div class="ui centered card m-margin-massive" style="width: 150px">
+                        <img src="../static/images/Wechat.png" alt="" class="ui image rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部 vertical去除圆角-->
+    <!-- 居中使用 center aligned-->
+    <footer th:replace="_fragments :: footer " class="ui center aligned inverted vertical segment m-padded-tb-big">
+        <!--container 容器中的组居中-->
+        <div class="ui container">
+            <!--带有分割线的 grid, 相当于一行, 分割线使用 divided, 且默认为黑色, 因此在这里需要反转为白色.-->
+            <!--让 grid 堆叠 适应手机端-->
+            <div class="ui inverted stackable divided grid">
+                <!--占有三列-->
+                <div class="three wide column">
+                    <!--圆角的图片-->
+                    <!--图片居中-->
+                    <img src="../static/images/Wechat.png" alt="" class="ui centered rounded image" style="width: 110px">
+                </div>
+                <!--占有三列-->
+                <div class="three wide column">
+                    <h4 class="m-text-spaced m-text-thin">最新博客</h4>
+                    <!--使用 SemanticUI 的 ul-->
+                    <div class="ui inverted link list">
+                        <!--使用 item 标记每一行-->
+                        <a href="#" class="item">关于练习的思考</a>
+                        <a href="#" class="item">关于练习的思考</a>
+                        <a href="#" class="item">关于练习的思考</a>
+                    </div>
+                </div>
+                <!--占有三列-->
+                <div class="three wide column">
+                    <h4 class="m-text-spaced m-text-thin">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email: 159984575@qq.com</a>
+                        <a href="#" class="item">QQ: 1509984575</a>
+                    </div>
+                </div>
+                <!--占有七列-->
+                <div class="seven wide column">
+                    <h4 class="m-text-spaced m-text-thin">Blog</h4>
+                    <p class="m-text-thin m-opacity-mini m-text-lined m-text-spaced">emantic UI 把单词和类看作可以交换的概念处理,类用自然语言的语法，比如名词/修饰词的关系、次序，以及直观的多元链接概念。Semantic UI 像 BEM 和 SMACSS一样的高效，且更加优秀。</p>
+                </div>
+            </div>
+        </div>
+        <!--在下面加一条线 reverted反转颜色 section线与上面有间隔 -->
+        <div class="ui reverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-mini ">Copyright @2019 create by LFY</p>
+    </footer>
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+        <!-- 引入 jQuery -->
+        <script src="../static/js/jquery-3.4.1.min.js"></script>
+        <!-- 引入 semanticUI 的 js 文件-->
+        <script src="../static/lib/semanticUI/semantic.min.js"></script>
+        <script>
+            /*--------注意 class 之间不能有间隔--------*/
+            $('.menu.toggle').click(function () {
+                $('.m-menu-toggle').toggleClass('m-mobile-hidden');
+            });
+        </script>
+    <!--/*/</th:block>/*/-->
+</body>
+</html>

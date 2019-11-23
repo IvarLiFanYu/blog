@@ -1,0 +1,228 @@
+
+body {
+    background: url("../images/bg.png");
+}
+
+/*--- 若想覆盖 SemanticUI 中的样式, 需要在自定义样式中添加 !important ---*/
+/*-----padding----*/
+.m-padded-tb-mini {
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+.m-padded-tb-big {
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+}
+.m-padded-tb-massive {
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+.m-padded-tb {
+    padding-top: 0.7em !important;
+    padding-bottom: 1em !important;
+}
+.m-padded-lr {
+    padding-left: 2em !important;
+    padding-right: 2em !important;
+}
+.m-padded-lr-large-responsive {
+    padding-left: 3em !important;
+    padding-right: 3em !important;
+}
+/*-----Text----*/
+.m-text-thin {
+    font-weight: 300 !important;
+}
+.m-text-spaced {
+    letter-spacing: 1px !important;
+}
+.m-text-lined {
+    line-height: 1.8 !important;
+}
+.m-text-lined-large {
+    line-height: 2.2 !important;
+}
+.m-text-teal {
+    color: #333;
+}
+
+/*-----opacity------*/
+.m-opacity-mini {
+    opacity: 0.6 !important;
+}
+
+/*------display-------*/
+.m-inline-block {
+    display: inline-block !important;
+}
+
+/*-----margin------*/
+.m-margin-large {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+}
+.m-margin {
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+}
+.m-margin-big {
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
+}
+.m-margin-massive {
+    margin-top: 3em !important;
+    margin-bottom: 3em !important;
+}
+.m-margin-bottom-tiny {
+    margin-bottom: 0.5em !important;
+}
+.m-margin-top-massive {
+    margin-top: 3em !important;
+}
+.m-margin-top-max {
+    margin-top: 17em !important;
+}
+.m-margin-top-maxed {
+    margin-top: 20em !important;
+}
+.m-margin-top {
+    margin-top: 5em !important;
+}
+.m-margin-top-max {
+    margin-top: 10em !important;
+}
+.m-margin-left-small {
+    margin-left: 1em !important;
+}
+.m-margin-left {
+    margin-left: 0.8em !important;
+}
+.m-margin-left-large {
+    margin-left: 1.3em !important;
+}
+.m-margin-left-big {
+    margin-left: 2.0em !important;
+}
+.m-margin-left-massive {
+    margin-left: 8em !important;
+}
+.m-margin-top-big {
+    margin-top: 1em !important;
+}
+.m-margin-top-tiny {
+    margin-top: 0.3em !important;
+}
+.m-margin-top-small {
+    margin-top: 1em !important;
+}
+.m-margin-right-small {
+    margin-right: 1em !important;
+}
+.m-margin-bottom-small {
+    margin-bottom: 1em !important;
+}
+.m-margin-bottom-big {
+    margin-bottom: 3em !important;
+}
+/*----position-----*/
+.m-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.m-right-bottom {
+    right: 0 !important;
+    bottom: 0 !important;
+}
+.m-margin-right-bottom {
+    margin-right: 2em !important;
+    margin-bottom: 2em !important;
+}
+.m-fixed {
+    position: fixed !important;
+}
+.m-text-big {
+    font-size: 16px !important;
+}
+.m-mobile-show {
+    display: none !important;
+}
+
+/*----手机端显示按钮----*/
+@media screen and (max-width: 768px) {
+    .m-mobile-show {
+        display: block !important;
+    }
+    .m-mobile-hidden {
+        display: none !important;
+    }
+    .m-padded-lr-large-responsive {
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+    }
+    .m-mobile-wide {
+        width: 100% !important;
+    }
+}
+.m-width-large {
+    width: 325px !important;
+}
+
+/*----container----*/
+.m-container {
+    width: 75em !important;
+}
+.m-container-small {
+    width: 65em !important;
+}
+.m-container-tiny {
+    width: 60em !important;
+}
+
+/*---shadow---*/
+.m-shadow-small {
+    -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.4) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4) !important;
+}
+
+.js-toc li a {
+    line-height: 2 !important;
+}
+.js-toc li a:hover {
+    color: teal !important;
+}
+.is-active-link{
+    color: teal !important;
+}
+
+.ui.label.m-white-label {
+    background-color: white !important;
+}
+
+.container1 {
+    width: 100% !important;
+    height: 6rem !important;
+    position: absolute !important;
+    margin: -3rem 0 0 -50% !important;
+    top: 25% !important;
+    left: 50% !important;
+    text-align: center !important;
+    font-size: 100% !important;
+}
+.sorry {
+    font-size: 45px;
+    line-height: 68px;
+}
+.goto {
+    font-size: 30px;
+    line-height: 68px;
+}
+.goto a {
+    text-decoration: none;
+    color: #0b72a4;
+}
+
+
+
+
+

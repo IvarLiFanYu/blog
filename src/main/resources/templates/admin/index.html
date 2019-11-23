@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title}) ">
+    <meta charset="UTF-8">
+    <title>博客列表</title>
+    <!--适应移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <!--引入 semanticUI css-->
+    <link rel="stylesheet" href="../../static/lib/semanticUI/semantic.min.css">
+    <!--引入自定义样式-->
+    <link rel="stylesheet" href="../../static/css/me.css">
+    <!--引入 editorMd css-->
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.css" />
+    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <!--stackable 可堆叠适应手机端-->
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">管理后台</h2>
+            <a href="#" class="active item m-mobile-hide"><i class=" home icon"></i>博客</a>
+            <a href="#" class="item m-mobile-hide"><i class=" idea icon"></i>分类</a>
+            <a href="#" class="item m-mobile-hide"><i class=" tags icon"></i>标签</a>
+            <div class="right menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image" src="../../static/images/head1.jpg">
+                        lifanyu
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu m-item">
+                        <a th:href="@{/admin/logout}" class="item ">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui icon button m-top-right m-mobile-show menu toggle">
+            <i class="sidebar icon"></i>
+        </a>
+    </div>
+</nav>
+
+<!--中间内容-->
+<div class="ui container m-margin-top-max">
+    <div class="ui segment">
+        <h1 class="ui teal header center aligned m-margin-top-big">欢迎您, 李凡宇</h1>
+        <div class="ui basic segment m-margin-top-massive">
+            <div class="ui centered grid m-margin-bottom-big">
+                <img src="../../static/images/1-800x600.jpg" alt="" class="ui rounded image">
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br><br>
+    <!--/*/<th:block>/*/-->
+        <!-- 引入 jQuery -->
+        <script src="../../static/js/jquery-3.4.1.min.js"></script>
+        <!-- 引入 semanticUI 的 js 文件-->
+        <script src="../../static/lib/semanticUI/semantic.min.js"></script>
+        <script src="../../static/lib/editormd/editormd.min.js"></script>
+        <script>
+            $('.ui .dropdown')
+                .dropdown({
+                    on: 'hover'
+                })
+            ;
+        </script>
+    <!--/*/</th:block>/*/-->
+</body>
+</html>
