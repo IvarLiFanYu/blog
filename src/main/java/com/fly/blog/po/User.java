@@ -1,17 +1,18 @@
 package com.fly.blog.po;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="tb_user")
-@Data
-@ToString
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -22,6 +23,7 @@ public class User {
     private Integer userId;
     private String userName;
     private String password;
+    private String nickName;
     private String email;
     private String avatar;
     private Integer type;
@@ -29,5 +31,8 @@ public class User {
     private Date updateTime;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
+
+    @OneToMany(mappedBy = "user")
+    private List<Blog> blogList;
 
 }

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="_fragments :: head(~{::title}) ">
     <meta charset="UTF-8">
-    <title>博客列表</title>
+    <title>博客首页</title>
     <!--适应移动端-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <!--引入 semanticUI css-->
@@ -14,12 +14,12 @@
     <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
 </head>
 <body>
-<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+<nav th:replace="admin/_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <!--stackable 可堆叠适应手机端-->
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">管理后台</h2>
-            <a href="#" class="active item m-mobile-hide"><i class=" home icon"></i>博客</a>
+            <a href="#" class="item m-mobile-hide"><i class=" home icon"></i>博客</a>
             <a href="#" class="item m-mobile-hide"><i class=" idea icon"></i>分类</a>
             <a href="#" class="item m-mobile-hide"><i class=" tags icon"></i>标签</a>
             <div class="right menu">

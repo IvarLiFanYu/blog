@@ -1,11 +1,12 @@
 package com.fly.blog.po;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="tb_tag")
-@Data
-@ToString
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Tag {
@@ -24,6 +25,7 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Integer tagId;
+    @NotEmpty(message = "标签名字不能为空!")
     private String tagName;
 
     @ManyToMany(mappedBy = "tags")

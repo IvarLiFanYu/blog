@@ -1,9 +1,9 @@
 package com.fly.blog.po;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,8 +15,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="tb_comment")
-@Data
-@ToString
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment {
@@ -27,8 +27,9 @@ public class Comment {
     private Integer commentId;
     private String nickName;
     private String email;
-    private String comment;
+    private String content;
     private String avatar;
+    private boolean adminComment;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 

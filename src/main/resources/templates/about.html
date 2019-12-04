@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head  th:fragment="head(title)">
+<head  th:fragment="_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <title>关于我</title>
     <!--适应移动端-->
@@ -59,9 +59,9 @@
                     </p>
                     <br>
                     <div class="ui teal basic label">编程</div>
-                    <div class="ui orange basic label">编程</div>
-                    <div class="ui blue basic label">编程</div>
-                    <div class="ui yellow basic label">编程</div>
+                    <div class="ui orange basic label">生活</div>
+                    <div class="ui blue basic label">运动</div>
+                    <div class="ui yellow basic label">音乐</div>
                 </div>
                 <div class="ui attached segment">
                     <div class="ui teal basic label m-padded-tb m-margin-bottom-small">Java</div>

@@ -10,7 +10,10 @@ import lombok.Getter;
 public enum ResultEnums {
 
     /** 操作成功.*/
-    SUCCESS(25000,"成功")
+    SUCCESS(25000,"成功"),
+    BLOG_IS_NULL(25001,"博客不存在"),
+    USER_NOT_LOGIN(25002,"用户未登录"),
+    BLOG_COMMENT_ERROR(25003,"评论保存失败")
     ;
 
 

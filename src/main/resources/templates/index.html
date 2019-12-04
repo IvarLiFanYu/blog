@@ -52,7 +52,7 @@
                                 <h3 class="ui teal header">博客</h3>
                             </div>
                             <div class="right aligned column">
-                                共 <h1 class="ui orange header m-inline-block m-text-thin">13</h1> 篇
+                                共 <h1 class="ui orange header m-inline-block m-text-thin" th:text="${blogList.totalElements}">13</h1> 篇
                             </div>
                         </div>
                     </div>
@@ -61,10 +61,47 @@
                         <!--第一个博客-->
                         <!--padded增加内边距-->
                         <!--vertical会在下面加横线-->
+                        <div  th:each="blog:${blogList}" class="ui vertical segment m-padded-tb-big">
+                            <!--column 必须在 grid 中才能有效-->
+                            <!--手机端左右翻转-->
+                            <div class="ui middle aligned stackable mobile mobile reversed grid">
+                                <div class="eleven wide column">
+                                    <a class="ui header m-margin-bottom-small m-text-thin m-inline-block" th:text="${blog.title}"  th:href="@{/blog/{id}(id=${blog.blogId})}">你真的理解什么是财富自由吗?</a>
+                                    <p  th:text="${blog.description}" class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <!--横向列表-->
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img th:src="@{${blog.user.avatar}}" src="../static/images/head.jpg" alt="" class="ui avatar image">
+                                                    <!--图片后面的昵称建议使用 content-->
+                                                    <div class="content"><a th:href="@{/about}" th:text="${blog.user.userName}" href="#" class="header" target="_self">李凡宇</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon calendar"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2019-11-15</span>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="ui icon eye"></i> <span th:text="${blog.views}">456</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-text-thin" th:text="${blog.type.typeName}">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a href="#">
+                                        <img th:src="${blog.headImage}" src="../static/images/image.jpg" alt="" class="ui image rounded">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/*-->
                         <div class="ui vertical segment m-padded-tb-big">
                             <!--column 必须在 grid 中才能有效-->
                             <!--手机端左右翻转-->
-                            <div class="ui stackable mobile mobile reversed grid">
+                            <div class="ui middle aligned stackable mobile mobile reversed grid">
                                 <div class="eleven wide column">
                                     <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
                                     <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
@@ -100,7 +137,7 @@
                         <div class="ui vertical segment m-padded-tb-big">
                             <!--column 必须在 grid 中才能有效-->
                             <!--手机端左右翻转-->
-                            <div class="ui stackable mobile mobile reversed grid">
+                            <div class="ui middle aligned stackable mobile mobile reversed grid">
                                 <div class="eleven wide column">
                                     <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
                                     <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
@@ -136,7 +173,7 @@
                         <div class="ui vertical segment m-padded-tb-big">
                             <!--column 必须在 grid 中才能有效-->
                             <!--手机端左右翻转-->
-                            <div class="ui stackable mobile mobile reversed grid">
+                            <div class="ui middle aligned stackable mobile mobile reversed grid">
                                 <div class="eleven wide column">
                                     <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
                                     <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
@@ -169,88 +206,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ui vertical segment m-padded-tb-big">
-                            <!--column 必须在 grid 中才能有效-->
-                            <!--手机端左右翻转-->
-                            <div class="ui stackable mobile mobile reversed grid">
-                                <div class="eleven wide column">
-                                    <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
-                                    <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
-                                    <div class="ui grid">
-                                        <div class="eleven wide column">
-                                            <!--横向列表-->
-                                            <div class="ui horizontal link list">
-                                                <div class="item">
-                                                    <img src="../static/images/head.jpg" alt="" class="ui avatar image">
-                                                    <!--图片后面的昵称建议使用 content-->
-                                                    <div class="content"><a href="#" class="header" target="_blank">李凡宇</a></div>
-                                                </div>
-                                                <div class="item">
-                                                    <i class="ui icon calendar"></i> 2019-11-15
-                                                </div>
-                                                <div class="item">
-                                                    <i class="ui icon eye"></i> 456
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="right aligned five wide column">
-                                            <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="five wide column">
-                                    <a href="#">
-                                        <img src="../static/images/image.jpg" alt="" class="ui image rounded">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui vertical segment m-padded-tb-big">
-                            <!--column 必须在 grid 中才能有效-->
-                            <!--手机端左右翻转-->
-                            <div class="ui stackable mobile mobile reversed grid">
-                                <div class="eleven wide column">
-                                    <h3 class="ui header">你真的理解什么是财富自由吗?</h3>
-                                    <p class="m-text-lined">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
-                                    <div class="ui grid">
-                                        <div class="eleven wide column">
-                                            <!--横向列表-->
-                                            <div class="ui horizontal link list">
-                                                <div class="item">
-                                                    <img src="../static/images/head.jpg" alt="" class="ui avatar image">
-                                                    <!--图片后面的昵称建议使用 content-->
-                                                    <div class="content"><a href="#" class="header" target="_blank">李凡宇</a></div>
-                                                </div>
-                                                <div class="item">
-                                                    <i class="ui icon calendar"></i> 2019-11-15
-                                                </div>
-                                                <div class="item">
-                                                    <i class="ui icon eye"></i> 456
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="right aligned five wide column">
-                                            <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="five wide column">
-                                    <a href="#">
-                                        <img src="../static/images/image.jpg" alt="" class="ui image rounded">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        <!--*/-->
                     </div>
                     <!--博客底部-->
                     <div class="ui bottom attached segment">
                         <div class="ui two column grid">
                             <!--left aligned 适用于 column-->
+                            <input type="hidden" name="page">
                             <div class="left aligned column">
-                                <a href="#" class="ui basic teal button">上一页</a>
-                           </div>
+                                <a th:href="@{/blogs(page=${blogList.number}-1)}" class="ui teal button" th:unless="${blogList.first}">上一页</a>
+                            </div>
                             <div class="right aligned column">
-                                <a href="#" class="ui basic teal button">下一页</a>
+                                <a th:href="@{/blogs(page=${blogList.number}+1)}" class=" ui teal button" th:unless="${blogList.last}">下一页</a>
                             </div>
                         </div>
                     </div>
@@ -266,13 +233,18 @@
                                         分类
                                     </div>
                                     <div class="right aligned column">
-                                        <a href="#" target="_blank">更多<i class="angle right double icon"></i></a>
+                                        <a href="#" th:href="@{/types/-1}" target="_self">更多<i class="angle right double icon"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="ui teal segment">
                                 <!--填充容器-->
                                 <div class="ui fluid vertical menu">
+                                    <a th:each="type:${typeList}" th:href="@{/types/{id}(id=${type.typeId})}" href="#" target="_self" class="item">
+                                        <span th:text="${type.typeName}">学习日志</span>
+                                        <div class="ui basic teal label" th:text="${#arrays.length(type.blogs)}">14</div>
+                                    </a>
+                                    <!--/*-->
                                     <a href="#" target="_blank" class="item">
                                         学习日志
                                         <div class="ui basic teal label">14</div>
@@ -297,10 +269,7 @@
                                         学习日志
                                         <div class="ui basic teal label">14</div>
                                     </a>
-                                    <a href="#" target="_blank" class="item">
-                                        学习日志
-                                        <div class="ui basic teal label">14</div>
-                                    </a>
+                                    <!--*/-->
                                 </div>
                             </div>
                         </div>
@@ -310,12 +279,19 @@
                                     <div class="column">
                                         <i class="tag icon"></i>标签
                                     </div>
-                                    <a href="#" target="_blank" class="right aligned column">
+                                    <a th:href="@{/tags/-1}" href="#" target="_self" class="right aligned column">
                                         更多 <i class="angle right double icon"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="ui teal segment">
+                                <a th:each="tag:${tagList}" th:href="@{/tags/{id}(id=${tag.tagId})}" href="#" target="_self" class="ui left pointing teal m-margin-large label">
+                                    <span th:text="${tag.tagName}">方法论</span>
+                                    <div class="detail">
+                                        <span th:text="${#arrays.length(tag.blogs)}">12</span>
+                                    </div>
+                                </a>
+                                <!--/*-->
                                 <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
                                 <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
                                 <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
@@ -323,7 +299,7 @@
                                 <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
                                 <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
                                 <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
-                                <a href="#" target="_blank" class="ui left pointing teal m-margin-large label">方法论 <div class="detail">12</div></a>
+                                <!--*/-->
                             </div>
                         </div>
                     <div class="ui segments m-margin-massive">
@@ -332,6 +308,10 @@
                                     <div class="column"><i class="ui icon bookmark"></i>最新推荐</div>
                                 </div>
                             </div>
+                            <div class="ui segment" th:each="recommendBlog:${recommendBlogList}">
+                                <a href="#" th:href="@{/blog/{id}(id=${recommendBlog.blogId})}" target="_self" th:text="${recommendBlog.title}" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
+                            </div>
+                            <!--/*-->
                             <div class="ui segment">
                                 <a href="#" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
                             </div>
@@ -347,9 +327,7 @@
                             <div class="ui segment">
                                 <a href="#" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
                             </div>
-                            <div class="ui segment">
-                                <a href="#" class="m-text-thin m-text-lined m-text-teal">用户故事 (User Story)</a>
-                            </div>
+                            <!--*/-->
                         </div>
                     <div class="ui horizontal divider">
                         <h4 class="ui header m-text-thin">扫码关注我</h4>
@@ -416,6 +394,10 @@
             $('.menu.toggle').click(function () {
                 $('.m-menu-toggle').toggleClass('m-mobile-hidden');
             });
+            /*function page(obj) {
+                $("[name='page']").val($(obj).val());
+                loaddata();
+            }*/
         </script>
     <!--/*/</th:block>/*/-->
 </body>

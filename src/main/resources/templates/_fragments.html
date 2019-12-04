@@ -10,11 +10,21 @@
     <!--适应移动端-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <!--引入 semanticUI css-->
-    <link rel="stylesheet" href="../static/lib/semanticUI/semantic.min.css">
+    <link rel="stylesheet" href="../static/lib/semanticUI/semantic.min.css" th:href="@{/lib/semanticUI/semantic.min.css}">
     <!--引入动画效果-->
-    <link rel="stylesheet" href="../static/css/animate.css">
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/semantic.min.css}">
+    <!--引入代码块效果-->
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../static/lib/toc/tocbot.css" th:href="@{/static/lib/toc/tocbot.css}">
+    <!--引入格式化样式-->
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <!-- 引入动态效果 -->
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <!-- 引入 editormd css -->
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.css" th:href="@{/lib/editormd/css/editormd.css}" />
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.css" th:href="@{/lib/editormd/css/editormd.min.css}" />
     <!--引入自定义样式-->
-    <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
 </head>
 
 <!--导航模块抽取-->
@@ -23,15 +33,18 @@
         <!--stackable 可堆叠适应手机端-->
         <div class="ui inverted stackable secondary menu">
             <h1 class="ui teal header item">Blog</h1>
-            <a href="#" class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==1}?'active'"><i class="icon idea"></i>分类</a>
-            <a href="#" class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==2}?'active'"><i class="icon home"></i>首页</a>
-            <a href="#" class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==3}?'active'"><i class="icon paperclip"></i>归档</a>
-            <a href="#" class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==4}?'active'"><i class="icon tags"></i>标签</a>
-            <a href="#" class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==5}?'active'"><i class="icon info"></i>关于我</a>
+            <a href="#" th:href="@{/blogs}" target="_self" class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==2}?'active'"><i class="icon home"></i>首页</a>
+            <a href="#" th:href="@{/types/-1}" target="_self"  class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==1}?'active'"><i class="icon idea"></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" target="_self"   class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==4}?'active'"><i class="icon tags"></i>标签</a>
+            <a href="#" th:href="@{/archives}" target="_self"   class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==3}?'active'"><i class="icon paperclip"></i>归档</a>
+            <a href="#" th:href="@{/about}" target="_self"   class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==5}?'active'"><i class="icon info"></i>关于我</a>
             <div class="right m-menu-toggle item m-mobile-hidden">
-                <div class="ui input icon">
-                    <input type="text" placeholder="Search">
-                    <i class="ui icon search"></i>
+                <div name="searchForm" class="ui form">
+                    <div class="ui input icon">
+                        <input th:value="${query}" style="width: 220px !important;" name="query" type="text" placeholder="Search">
+                        <input type="hidden" name="page" value="0">
+                        <a class="ui teal button m-padded-tb-mini m-padded-top-mini" onclick="searchResult()">Search</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,7 +55,7 @@
 </nav>
 
 <!--底部抽取-->
-<footer th:fragment="footer" class="ui center aligned inverted vertical segment m-padded-tb-big">
+<footer th:fragment="footer" class="ui center aligned inverted vertical segment m-padded-tb-big footer">
     <!--container 容器中的组居中-->
     <div class="ui container">
         <!--带有分割线的 grid, 相当于一行, 分割线使用 divided, 且默认为黑色, 因此在这里需要反转为白色.-->
@@ -52,7 +65,7 @@
             <div class="three wide column">
                 <!--圆角的图片-->
                 <!--图片居中-->
-                <img src="../static/images/Wechat.png" alt="" class="ui centered rounded image" style="width: 110px">
+                <img src="../static/images/Wechat.png" th:src="@{/static/images/Wechat.png}" alt="" class="ui centered rounded image" style="width: 110px">
             </div>
             <!--占有三列-->
             <div class="three wide column">
@@ -88,38 +101,13 @@
 <!--js 抽取-->
 <th:block th:fragment="script">
     <!-- 引入 jQuery -->
-    <script src="../static/js/jquery-3.4.1.min.js"></script>
+    <script src="../static/js/jquery-3.4.1.min.js" th:src="@{/static/js/jquery-3.4.1.min.js}"></script>
     <!-- 引入 semanticUI 的 js 文件-->
-    <script src="../static/lib/semanticUI/semantic.min.js"></script>
-    <script src="../static/lib/prism/prism.js"></script>
-    <script src="../static/lib/toc/tocbot.min.js"></script>
-    <script src="../static/lib/qrcode/qrcode.min.js"></script>
-    <script>
-        /*--------注意 class 之间不能有间隔--------*/
-        $('.menu.toggle').click(function () {
-            $('.m-menu-toggle').toggleClass('m-mobile-hidden');
-        });
-        $('.git-btn').popup({
-            popup: $('.git-qr.popup'),
-            position: 'bottom center'
-        });
-        $('.wechat-btn').popup({
-            popup: $('.wechat-qr.popup'),
-            position: 'bottom center'
-        });
-        $('.qq-btn').popup({
-            popup: $('.qq-qr.popup'),
-            position: 'bottom center'
-        });
-        var qrcode = new QRCode("qrcode", {
-            text: "https://github.com/IvarLiFanYu",
-            width: 130,
-            height: 130,
-            colorDark : "#000000",
-            colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
-        });
-    </script>
+    <script src="../static/lib/semanticUI/semantic.min.js" th:src="@{/static/lib/semanticUI/semantic.min.js}"></script>
+    <script src="../static/lib/prism/prism.js" th:src="@{/static/lib/prism/prism.js}"></script>
+    <script src="../static/lib/toc/tocbot.min.js" th:src="@{/static/lib/toc/tocbot.min.js}"></script>
+    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/static/lib/qrcode/qrcode.min.js}"></script>
+    <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/static/lib/editormd/editormd.min.js}"></script>
 </th:block>
 
 
