@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import sun.security.provider.MD5;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,7 +24,7 @@ public class LoginController {
 
     @GetMapping
     public String log() {
-        return "/admin/login";
+        return "admin/login";
     }
 
     @PostMapping("/login")
@@ -36,7 +35,7 @@ public class LoginController {
         User user = userService.checkUser(username, MD5Utils.code(password));
         if (user != null) {
             session.setAttribute("user",user);
-            return "/admin/index";
+            return "admin/index";
         } else {
             log.warn("用户名或者密码错误:{}:{}",username,password);
             //添加重定向属性

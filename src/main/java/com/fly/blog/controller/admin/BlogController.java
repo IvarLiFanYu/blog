@@ -28,7 +28,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.naming.Binding;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -59,7 +58,7 @@ public class BlogController {
         model.addAttribute("page",page);
         model.addAttribute("tagList",tagList);
         model.addAttribute("typeList",typeList);
-        return "/admin/blogs";
+        return "admin/blogs";
     }
 
     /**
@@ -84,7 +83,7 @@ public class BlogController {
         List<Tag> tags = tagService.findAll();
         model.addAttribute("tagList",tags);
         model.addAttribute("blog",blog);
-        return "/admin/blogs-input";
+        return "admin/blogs-input";
     }
 
     @RequestMapping("/blogs/input/{id}")
@@ -100,7 +99,7 @@ public class BlogController {
         model.addAttribute("tagList",tagList);
         model.addAttribute("ids",ids);
         model.addAttribute("blog",blog);
-        return "/admin/blogs-input";
+        return "admin/blogs-input";
     }
 
     @PostMapping("/blogs")
@@ -108,12 +107,12 @@ public class BlogController {
 
         if (bindingResult.hasErrors()) {
             log.error("非自定义异常,message={}",bindingResult.getAllErrors());
-            return "/admin/blogs-input";
+            return "admin/blogs-input";
         }
 
         if (session.getAttribute("user") == null) {
             ExceptionCast.cast(ResultEnums.USER_NOT_LOGIN);
-            return "/admin/blogs-input";
+            return "admin/blogs-input";
         }
 
         Blog blog = new Blog();

@@ -93,7 +93,7 @@
                                                 <div class="content"><a href="#" class="header" target="_blank" th:text="${blog.user.userName}">李凡宇</a></div>
                                             </div>
                                             <div class="item">
-                                                <i class="ui icon calendar"></i> <span th:text="${blog.createTime}">2019-11-15</span>
+                                                <i class="ui icon calendar"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2019-11-15</span>
                                             </div>
                                             <div class="item">
                                                 <i class="ui icon eye"></i> <span th:text="${blog.views}">456</span>
@@ -206,11 +206,12 @@
         <div class="ui reverted section divider"></div>
         <p class="m-text-thin m-text-spaced m-opacity-mini ">Copyright @2019 create by LFY</p>
     </footer>
-    <!--/*/<th:block>/*/-->
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
     <!-- 引入 jQuery -->
     <script src="../static/js/jquery-3.4.1.min.js"></script>
     <!-- 引入 semanticUI 的 js 文件-->
     <script src="../static/lib/semanticUI/semantic.min.js"></script>
+    <!--/*/</th:block>/*/-->
     <script>
         /*--------注意 class 之间不能有间隔--------*/
         $('.menu.toggle').click(function () {
@@ -222,6 +223,6 @@
             position: 'bottom center'
         });
     </script>
-    <!--/*/</th:block>/*/-->
+
 </body>
 </html>

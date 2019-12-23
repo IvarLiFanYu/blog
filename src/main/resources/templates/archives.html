@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head  th:fragment="_fragments :: head(~{::title})">
+<head  th:replace="_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <title>归档</title>
     <!--适应移动端-->
@@ -58,7 +58,7 @@
             <div class="ui top attached segment" th:each="blog : ${archiveList.value}">
                 <div class="ui two column grid">
                     <div class="ui column">
-                        <span th:text="${blog.title}">关于刻意练习的清单</span>
+                        <a th:href="@{/blog/{id}(id=${blog.blogId})}"><span th:text="${blog.title}">关于刻意练习的清单</span></a>
                         <div class="ui teal basic label m-margin-left-small" th:text="${#dates.format(blog.createTime,'MMM dd')}+' 号'">10月02号</div>
                     </div>
                     <div class="ui column right aligned">
@@ -249,7 +249,7 @@
     <br><br><br>
     <!--底部 vertical去除圆角-->
     <!-- 居中使用 center aligned-->
-    <footer  th:replace="_fragments :: footer" class="ui center aligned inverted vertical segment m-padded-tb-big">
+    <footer th:replace="_fragments :: footer" class="ui center aligned inverted vertical segment m-padded-tb-big">
         <!--container 容器中的组居中-->
         <div class="ui teal container">
             <!--带有分割线的 grid, 相当于一行, 分割线使用 divided, 且默认为黑色, 因此在这里需要反转为白色.-->
@@ -291,7 +291,7 @@
         <div class="ui reverted section divider"></div>
         <p class="m-text-thin m-text-spaced m-opacity-mini ">Copyright @2019 create by LFY</p>
     </footer>
-    <!--/*/<th:block>/*/-->
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
     <!-- 引入 jQuery -->
     <script src="../static/js/jquery-3.4.1.min.js"></script>
     <!-- 引入 semanticUI 的 js 文件-->
@@ -299,12 +299,12 @@
     <script src="../static/lib/prism/prism.js"></script>
     <script src="../static/lib/toc/tocbot.min.js"></script>
     <script src="../static/lib/qrcode/qrcode.min.js"></script>
+    <!--/*/</th:block>/*/-->
     <script>
         /*--------注意 class 之间不能有间隔--------*/
         $('.menu.toggle').click(function () {
             $('.m-menu-toggle').toggleClass('m-mobile-hidden');
         });
     </script>
-    <!--/*/</th:block>/*/-->
 </body>
 </html>

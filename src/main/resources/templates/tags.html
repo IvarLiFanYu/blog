@@ -69,7 +69,7 @@
                         <div class="row">
                             <div class="eleven wide column">
                                 <div class="ui vertical segment">
-                                    <h3 class="ui header" th:text="${blog.title}">你真的理解什么是财富自由吗?</h3>
+                                    <a class="ui header m-margin-bottom-small m-text-thin m-inline-block" th:text="${blog.title}"  th:href="@{/blog/{id}(id=${blog.blogId})}">你真的理解什么是财富自由吗?</a>
                                     <p class="m-text-lined" th:text="${blog.description}">我坐在一张木制板凳上，轻轻捧起一碗热气腾腾的米粥，感受着从指尖传来的温暖，袅袅洋溢着朴质的麦谷清香就在这一刻蔓延开来，窜入鼻间。“愣着干嘛，趁热把粥吃了。”耳边传来的是奶奶的催促，因陪我早起为我熬粥而操劳得发哑的嗓音传来，我心里酸了酸，脑中浮现起在晨曦未临的大清早，奶奶固执地从床上爬起，翻阅她那本《营养粥谱》，然后精心准备好的食料无不一一被倒进锅中。</p>
                                     <div class="ui grid">
                                         <div class="eleven wide column">
@@ -81,7 +81,7 @@
                                                     <div class="content"><a href="#" class="header" target="_blank" th:text="${blog.user.nickName}">李凡宇</a></div>
                                                 </div>
                                                 <div class="item">
-                                                    <i class="ui icon calendar"></i> <span th:text="${blog.createTime}">2019-11-15</span>
+                                                    <i class="ui icon calendar"></i> <span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2019-11-15</span>
                                                 </div>
                                                 <div class="item">
                                                     <i class="ui icon eye"></i> <span th:text="${blog.views}">456</span>
@@ -210,11 +210,12 @@
         <p class="m-text-thin m-text-spaced m-opacity-mini ">Copyright @2019 create by LFY</p>
     </footer>
 
-    <!--/*/<th:block>/*/-->
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
     <!-- 引入 jQuery -->
     <script src="../static/js/jquery-3.4.1.min.js"></script>
     <!-- 引入 semanticUI 的 js 文件-->
     <script src="../static/lib/semanticUI/semantic.min.js"></script>
+    <!--/*/</th:block>/*/-->
     <script>
         /*--------注意 class 之间不能有间隔--------*/
         $('.menu.toggle').click(function () {
@@ -226,6 +227,5 @@
             position: 'bottom center'
         });
     </script>
-    <!--/*/</th:block>/*/-->
 </body>
 </html>

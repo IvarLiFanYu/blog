@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head  th:fragment="_fragments :: ~head(title)">
+<head  th:replace="_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <title>博客详情页</title>
     <!--适应移动端-->
@@ -42,7 +42,7 @@
         </a>
     </nav>
     <!--中间内容-->
-    <div id="content" class=" m-padded-tb-big m-margin-big animate ">
+    <div id="content" class=" m-padded-tb-big m-margin-big animated fadeInUp ">
         <div class="ui container m-container">
             <div class="ui top attached segment">
                 <!--头部-->
@@ -449,25 +449,25 @@
                 <div class="ui basic segment m-padded-lr">
                     <div class="ui left pointing basic teal label" th:text="${blog.type.typeName}">方法论</div>
                 </div>
-                <div class="ui basic center aligned segment">
+                <div class="ui basic center aligned segment" th:if="${blog.appreciation}">
                     <button class="ui circular orange basic button pay button">赞赏</button>
                 </div>
                 <div class="ui payQR flowing popup hidden">
-                    <div class="ui basic orange label">
+                    <div class="ui basic teal label">
                         <div class="ui images m-padded-tb-big" style="font-size: 14px !important;" >
                             <div class="image">
-                                <img src="../static/images/Wechat.png" alt="" class="ui rounded bordered small image">
+                                <img src="../static/images/alipay.png" alt="" class="ui rounded bordered small image">
                                 <div class="ui header ">支付宝</div>
                             </div>
                             <div class="image">
-                                <img src="../static/images/Wechat.png" alt="" class="ui rounded bordered small image">
+                                <img src="../static/images/WexinPay.png" alt="" class="ui rounded bordered small image">
                                 <div class="ui header ">微信</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="ui basic attached positive message">
+            <div class="ui basic attached positive message" th:if="${blog.shareStatement}">
                 <div class="ui middle aligned grid">
                     <div class="eleven wide column">
                         <ul class="ui list ">
@@ -482,7 +482,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ui bottom attached segment" >
+            <div class="ui bottom attached segment" th:if="${blog.commentable}" >
                 <div id="comment-content">
                     <div th:fragment="commentList">
                         <!--留言列表-->
@@ -665,7 +665,7 @@
             // Which headings to grab inside of the contentSelector element.
             headingSelector: 'h1, h2, h3',
         });
-        var serverUrl = "127.0.0.1:8081";
+        var serverUrl = /*[[#{blog.serUrl}]]*/"127.0.0.1:8081";
         var url = /*[[@{/blog/{id}(id=${blog.blogId})}]]*/"";
         var qrcode = new QRCode("qrcode", {
             text: serverUrl+url,
@@ -680,13 +680,12 @@
         function reply(obj) {
             var parentId = $(obj).data('commentid');
             var nickName = $(obj).data('commentnickname');
-            alert(parentId)
             $("[name='comment.parentId']").val(parentId);
             $("[name='content']").attr("placeholder","@"+nickName).focus();
             $(window).scrollTo(0,500);
         }
         //评论表单检验
-        $(".ui.form").form({
+        $(".ui.form.reply").form({
             fields:{
                 content: {
                     identifier: 'content',
@@ -722,7 +721,8 @@
         })
         $("#reply-btn").click(function() {
             //1. 显式表单校验
-            var flag = $(".ui.form").form('validate form');
+            var flag = $(".ui.form.reply").form('validate form');
+            //alert(flag)
             if (flag) {
                 console.log('校验成功!')
                 //2. 校验成功发送回复数据

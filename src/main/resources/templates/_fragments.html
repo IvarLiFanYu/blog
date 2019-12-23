@@ -10,18 +10,17 @@
     <!--适应移动端-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <!--引入 semanticUI css-->
-    <link rel="stylesheet" href="../static/lib/semanticUI/semantic.min.css" th:href="@{/lib/semanticUI/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/lib/semanticUI/semantic.min.css}">
     <!--引入动画效果-->
-    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
     <!--引入代码块效果-->
     <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
-    <link rel="stylesheet" href="../static/lib/toc/tocbot.css" th:href="@{/static/lib/toc/tocbot.css}">
+    <link rel="stylesheet" href="../static/lib/toc/tocbot.css" th:href="@{/lib/toc/tocbot.css}">
     <!--引入格式化样式-->
     <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
     <!-- 引入动态效果 -->
     <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
     <!-- 引入 editormd css -->
-    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.css" th:href="@{/lib/editormd/css/editormd.css}" />
     <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.css" th:href="@{/lib/editormd/css/editormd.min.css}" />
     <!--引入自定义样式-->
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
@@ -33,19 +32,18 @@
         <!--stackable 可堆叠适应手机端-->
         <div class="ui inverted stackable secondary menu">
             <h1 class="ui teal header item">Blog</h1>
-            <a href="#" th:href="@{/blogs}" target="_self" class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==2}?'active'"><i class="icon home"></i>首页</a>
-            <a href="#" th:href="@{/types/-1}" target="_self"  class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==1}?'active'"><i class="icon idea"></i>分类</a>
-            <a href="#" th:href="@{/tags/-1}" target="_self"   class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==4}?'active'"><i class="icon tags"></i>标签</a>
-            <a href="#" th:href="@{/archives}" target="_self"   class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==3}?'active'"><i class="icon paperclip"></i>归档</a>
-            <a href="#" th:href="@{/about}" target="_self"   class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==5}?'active'"><i class="icon info"></i>关于我</a>
+            <a href="#" th:href="@{/blogs}" target="_self" class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==2}?'active'"><i class="icon home"></i><span th:text="#{header.home}">首页</span></a>
+            <a href="#" th:href="@{/types/-1}" target="_self"  class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==1}?'active'"><i class="icon idea"></i><span th:text="#{header.type}">分类</span></a>
+            <a href="#" th:href="@{/tags/-1}" target="_self"   class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==4}?'active'"><i class="icon tags"></i><span th:text="#{header.tag}">标签</span></a>
+            <a href="#" th:href="@{/archives}" target="_self"   class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==3}?'active'"><i class="icon paperclip"></i><span th:text="#{header.archives}">归档</span></a>
+            <a href="#" th:href="@{/about}" target="_self"   class="ui m-menu-toggle item m-mobile-hidden" th:classappend="${n==5}?'active'"><i class="icon info"></i><span th:text="#{header.about}">关于我</span></a>
             <div class="right m-menu-toggle item m-mobile-hidden">
-                <div name="searchForm" class="ui form">
+                <form name="search" class="ui form" th:action="@{/search}" target="_self" method="post">
                     <div class="ui input icon">
                         <input th:value="${query}" style="width: 220px !important;" name="query" type="text" placeholder="Search">
-                        <input type="hidden" name="page" value="0">
-                        <a class="ui teal button m-padded-tb-mini m-padded-top-mini" onclick="searchResult()">Search</a>
+                        <i onclick="document.forms['search'].submit()" class="search icon link"></i>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -67,35 +65,37 @@
                 <!--图片居中-->
                 <img src="../static/images/Wechat.png" th:src="@{/static/images/Wechat.png}" alt="" class="ui centered rounded image" style="width: 110px">
             </div>
-            <!--占有三列-->
-            <div class="three wide column">
-                <h4 class="m-text-spaced m-text-thin">最新博客</h4>
-                <!--使用 SemanticUI 的 ul-->
-                <div class="ui inverted link list">
-                    <!--使用 item 标记每一行-->
-                    <a href="#" class="item">关于练习的思考</a>
-                    <a href="#" class="item">关于练习的思考</a>
-                    <a href="#" class="item">关于练习的思考</a>
+            <!--占有五列-->
+            <div id="newBlogList" class="m-margin-right-small m-margin-top-small five wide column">
+                <div th:fragment="newBlogs">
+                    <h4 class="m-text-spaced m-text-thin">最新博客</h4>
+                    <!--使用 SemanticUI 的 ul-->
+                    <div class="ui inverted link list">
+                        <!--使用 item 标记每一行-->
+                        <a th:href="@{/blog/{id}(id=${blog.blogId})}" href="#" class="item" th:each="blog:${page}"><span th:text="${blog.title}">关于练习的思考</span></a>
+                        <!--<a href="#" class="item">关于练习的思考</a>
+                        <a href="#" class="item">关于练习的思考</a>-->
+                    </div>
                 </div>
             </div>
             <!--占有三列-->
             <div class="three wide column">
                 <h4 class="m-text-spaced m-text-thin">联系我</h4>
                 <div class="ui inverted link list">
-                    <a href="#" class="item">Email: 159984575@qq.com</a>
-                    <a href="#" class="item">QQ: 1509984575</a>
+                    <a href="#" class="item">Email: <span th:text="#{footer.email}">159984575@qq.com</span></a>
+                    <a href="#" class="item">QQ: <span th:text="#{footer.qq}">1509984575</span></a>
                 </div>
             </div>
-            <!--占有七列-->
-            <div class="seven wide column">
-                <h4 class="m-text-spaced m-text-thin">Blog</h4>
-                <p class="m-text-thin m-opacity-mini m-text-lined m-text-spaced">emantic UI 把单词和类看作可以交换的概念处理,类用自然语言的语法，比如名词/修饰词的关系、次序，以及直观的多元链接概念。Semantic UI 像 BEM 和 SMACSS一样的高效，且更加优秀。</p>
+            <!--占有五列-->
+            <div class="five wide column">
+                <h4 class="m-text-spaced m-text-thin m-margin-bottom-small">Blog</h4>
+                <p class="m-text-thin m-opacity-mini m-text-lined m-text-spaced">精品博客,吐血总结! <br>先秃头,后成神!</p>
             </div>
         </div>
     </div>
     <!--在下面加一条线 reverted反转颜色 section线与上面有间隔 -->
     <div class="ui reverted section divider"></div>
-    <p class="m-text-thin m-text-spaced m-opacity-mini ">Copyright @2019 create by LFY</p>
+    <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright @2019 create by LFY</p>
 </footer>
 
 <!--js 抽取-->
@@ -108,6 +108,9 @@
     <script src="../static/lib/toc/tocbot.min.js" th:src="@{/static/lib/toc/tocbot.min.js}"></script>
     <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/static/lib/qrcode/qrcode.min.js}"></script>
     <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/static/lib/editormd/editormd.min.js}"></script>
+    <script>
+        $("#newBlogList").load(/*[[@{/new/blog}]]*/"/new/blog");
+    </script>
 </th:block>
 
 

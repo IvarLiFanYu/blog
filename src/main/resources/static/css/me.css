@@ -1,7 +1,13 @@
 
-body {
-    background: url("../images/bg.png");
+html,body {
+    width: 100% !important;
+    height: 100% !important;
 }
+
+body{
+    background:url("../images/bg.png");
+}
+
 
 /*--- 若想覆盖 SemanticUI 中的样式, 需要在自定义样式中添加 !important ---*/
 /*-----padding----*/

@@ -78,7 +78,7 @@
                                                     <div class="content"><a th:href="@{/about}" th:text="${blog.user.userName}" href="#" class="header" target="_self">李凡宇</a></div>
                                                 </div>
                                                 <div class="item">
-                                                    <i class="ui icon calendar"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2019-11-15</span>
+                                                    <i class="ui icon calendar"></i> <span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2019-11-15</span>
                                                 </div>
                                                 <div class="item">
                                                     <i class="ui icon eye"></i> <span th:text="${blog.views}">456</span>
@@ -86,7 +86,7 @@
                                             </div>
                                         </div>
                                         <div class="right aligned five wide column">
-                                            <a href="#" target="_blank" class="ui teal basic label m-text-thin" th:text="${blog.type.typeName}">认知升级</a>
+                                            <a href="#" th:href="@{/types/{id}(id=${blog.type.typeId})}" target="_self" class="ui teal basic label m-text-thin" th:text="${blog.type.typeName}">认知升级</a>
                                         </div>
                                     </div>
                                 </div>
@@ -389,16 +389,16 @@
         <script src="../static/js/jquery-3.4.1.min.js"></script>
         <!-- 引入 semanticUI 的 js 文件-->
         <script src="../static/lib/semanticUI/semantic.min.js"></script>
-        <script>
-            /*--------注意 class 之间不能有间隔--------*/
-            $('.menu.toggle').click(function () {
-                $('.m-menu-toggle').toggleClass('m-mobile-hidden');
-            });
-            /*function page(obj) {
-                $("[name='page']").val($(obj).val());
-                loaddata();
-            }*/
-        </script>
     <!--/*/</th:block>/*/-->
+    <script>
+        /*--------注意 class 之间不能有间隔--------*/
+        $('.menu.toggle').click(function () {
+            $('.m-menu-toggle').toggleClass('m-mobile-hidden');
+        });
+        /*function page(obj) {
+            $("[name='page']").val($(obj).val());
+            loaddata();
+        }*/
+    </script>
 </body>
 </html>
